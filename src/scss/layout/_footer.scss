@@ -1,8 +1,15 @@
 .footer {
-  background-color: cadetblue;
+  font-size: 2rem;
+  height: 15vh;
+  background-color: $color-blue;
   position: fixed;
-  left: 0;
   bottom: 0;
   width: 100vw;
-  color: $color-secondary;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+small a {
+  text-decoration: none;
+  color: $color-yellow;
 }
