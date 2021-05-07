@@ -12,7 +12,6 @@ if (window.location.pathname === "/end.html") {
   if (finalScore) {
     finalScore.innerHTML = `Score:${mostRecentScore}`;
   }
-  mostRecentScore = 30;
   console.log(mostRecentScore);
   if (mostRecentScore >= 40) {
     clap.innerHTML = `<img src="../assets/images/clap.gif"/>`;
