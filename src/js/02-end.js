@@ -6,13 +6,17 @@ if (window.location.pathname === "/end.html") {
   const mostRecentScore = localStorage.getItem("mostRecentScore");
 
   const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-
+  const clap = document.getElementById("clap");
   const MAX_HIGH_SCORES = 5;
 
   if (finalScore) {
     finalScore.innerHTML = `Score:${mostRecentScore}`;
   }
-
+  mostRecentScore = 30;
+  console.log(mostRecentScore);
+  if (mostRecentScore >= 40) {
+    clap.innerHTML = `<img src="../assets/images/clap.gif"/>`;
+  }
   username.addEventListener("keydown", () => {
     saveScoreBtn.disabled = false;
     // saveScoreBtn.disabled = !username.value;
