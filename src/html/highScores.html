@@ -19,17 +19,12 @@
             <a class="btn" href="/">Go Home</a>
         </div>
     </div>
+    <include src="./partials/footer.html"></include>
 
-    <script>
-        const highScoreList = document.getElementById("highScoresList");
-        const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-        const list = highScores.map(score => {
-            return `<li class="high-score">${score.name} - ${score.score}</li>`
+    <!-- <script src="./assets/js/main.js">
 
-        }).join("")
-        highScoreList.innerHTML = list
 
-    </script>
+    </script> -->
 
 </body>
 
