@@ -84,3 +84,13 @@
     transform: rotate(360deg);
   }
 }
+.wrap-counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.counter {
+  background-color: $color-red;
+  opacity: 0.8;
+  border: 3px solid $color-red;
+}

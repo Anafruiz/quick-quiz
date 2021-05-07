@@ -5,6 +5,7 @@ if (window.location.pathname === "/game.html") {
   const progressText = document.getElementById("progressText");
   const scoreText = document.getElementById("score");
   const progressBarFull = document.getElementById("progressBarFull");
+  const counter = document.getElementById("counter");
   const loader = document.getElementById("loader");
   const game = document.getElementById("game");
   let currentQuestion = {};
@@ -26,7 +27,6 @@ if (window.location.pathname === "/game.html") {
         const formattedQuestion = {
           question: loadedQuestion.question,
         };
-
         const answerChoices = [...loadedQuestion.incorrect_answers];
         formattedQuestion.answer = Math.floor(Math.random() * 4) + 1;
         answerChoices.splice(
@@ -41,6 +41,7 @@ if (window.location.pathname === "/game.html") {
 
         return formattedQuestion;
       });
+      setInterval(set, 1000);
 
       startGame();
     })
@@ -51,6 +52,7 @@ if (window.location.pathname === "/game.html") {
   //CONSTANTS
   const CORRECT_BONUS = 10;
   const MAX_QUESTIONS = 5;
+  let contador = 15;
 
   startGame = () => {
     questionCounter = 0;
@@ -61,10 +63,20 @@ if (window.location.pathname === "/game.html") {
     loader.classList.add("hidden");
   };
 
+  function set() {
+    contador--;
+    counter.innerHTML = contador;
+    if (contador === 0) {
+      getNewQuestion();
+    }
+  }
   getNewQuestion = () => {
+    contador = 15;
+
     if (availableQuesions.length === 0 || questionCounter >= MAX_QUESTIONS) {
       localStorage.setItem("mostRecentScore", score);
       //go to the end page
+
       return window.location.assign("/end.html");
     }
     questionCounter++;
