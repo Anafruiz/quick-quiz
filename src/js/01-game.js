@@ -1,4 +1,5 @@
 `use strict`;
+console.log(window.location.pathname);
 if (window.location.pathname === "/game.html") {
   const question = document.getElementById("question");
   const choices = Array.from(document.getElementsByClassName("choice-text"));
@@ -15,7 +16,7 @@ if (window.location.pathname === "/game.html") {
   let availableQuesions = [];
 
   let questions = [];
-
+  debugger;
   fetch(
     "//opentdb.com/api.php?amount=50&category=9&difficulty=easy&type=multiple"
   )
@@ -45,6 +46,7 @@ if (window.location.pathname === "/game.html") {
 
       startGame();
     })
+
     .catch((err) => {
       console.error(err);
     });
