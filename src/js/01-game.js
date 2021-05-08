@@ -1,6 +1,5 @@
 `use strict`;
-console.log(window.location.pathname);
-if (window.location.pathname === "/game.html") {
+if (window.location.pathname === "/quick-quiz/game.html") {
   const question = document.getElementById("question");
   const choices = Array.from(document.getElementsByClassName("choice-text"));
   const progressText = document.getElementById("progressText");
