@@ -1,5 +1,5 @@
 `use strict`;
-if (window.location.pathname === "/end.html") {
+if (window.location.pathname === "/quick-quiz/end.html") {
   const username = document.getElementById("username");
   const saveScoreBtn = document.getElementById("saveScoreBtn");
   const finalScore = document.getElementById("finalScore");

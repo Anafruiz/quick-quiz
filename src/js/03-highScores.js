@@ -1,5 +1,5 @@
 `use strict`;
-if (window.location.pathname === "/highscores.html") {
+if (window.location.pathname === "/quick-quiz/highscores.html") {
   const highScoreList = document.getElementById("highScoresList");
   const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
   const list = highScores
