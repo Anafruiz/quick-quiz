@@ -33,6 +33,6 @@ if (window.location.pathname === "/quick-quiz/end.html") {
     highScores.splice(5);
 
     localStorage.setItem("highScores", JSON.stringify(highScores));
-    window.location.assign("/");
+    window.location.assign("/quick-quiz");
   };
 }
