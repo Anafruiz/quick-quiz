@@ -78,7 +78,7 @@ if (window.location.pathname === "/quick-quiz/game.html") {
       localStorage.setItem("mostRecentScore", score);
       //go to the end page
 
-      return window.location.assign("quick-quiz/end.html");
+      return window.location.assign("/end.html");
     }
     questionCounter++;
     progressText.innerHTML = `Question ${questionCounter}/${MAX_QUESTIONS}`;
