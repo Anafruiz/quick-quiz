@@ -113,8 +113,10 @@ if (window.location.pathname === "/game.html") {
       if (classToApply === "correct") {
         incrementScore(CORRECT_BONUS);
       }
-
       selectedChoice.parentElement.classList.add(classToApply);
+      // if (classToApply == "incorrect") {
+      //   selectedChoice.parentElement.classList.add("correct");
+      // }
 
       setTimeout(() => {
         selectedChoice.parentElement.classList.remove(classToApply);
