@@ -114,11 +114,14 @@ if (window.location.pathname === "/quick-quiz/game.html") {
       if (classToApply === "correct") {
         incrementScore(CORRECT_BONUS);
       }
-
+      if (classToApply === "incorrect") {
+        choices[currentQuestion.answer - 1].classList.add("correct");
+      }
       selectedChoice.parentElement.classList.add(classToApply);
 
       setTimeout(() => {
         selectedChoice.parentElement.classList.remove(classToApply);
+        choices[currentQuestion.answer - 1].classList.remove("correct");
         getNewQuestion();
       }, 1000);
     });
