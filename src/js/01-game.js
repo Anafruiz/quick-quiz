@@ -1,5 +1,9 @@
 `use strict`;
 if (window.location.pathname === "/quick-quiz/game.html") {
+  //CONSTANTS
+  const CORRECT_BONUS = 10;
+  const MAX_QUESTIONS = 5;
+  let contador = 15;
   const question = document.getElementById("question");
   const choices = Array.from(document.getElementsByClassName("choice-text"));
   const progressText = document.getElementById("progressText");
@@ -14,7 +18,6 @@ if (window.location.pathname === "/quick-quiz/game.html") {
   let questionCounter = 0;
   let availableQuesions = [];
   let questions = [];
-  debugger;
   fetch(
     "//opentdb.com/api.php?amount=50&category=9&difficulty=easy&type=multiple"
   )
@@ -41,13 +44,10 @@ if (window.location.pathname === "/quick-quiz/game.html") {
       setInterval(set, 1000);
       startGame();
     })
+
     .catch((err) => {
       console.error(err);
     });
-  //CONSTANTS
-  const CORRECT_BONUS = 10;
-  const MAX_QUESTIONS = 5;
-  let contador = 15;
   startGame = () => {
     questionCounter = 0;
     score = 0;

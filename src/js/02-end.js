@@ -1,5 +1,5 @@
 `use strict`;
-if (window.location.pathname === "/end.html") {
+if (window.location.pathname === "/quick-quiz/end.html") {
   const username = document.getElementById("username");
   const saveScoreBtn = document.getElementById("saveScoreBtn");
   const finalScore = document.getElementById("finalScore");
@@ -12,7 +12,6 @@ if (window.location.pathname === "/end.html") {
   if (finalScore) {
     finalScore.innerHTML = `Score:${mostRecentScore}`;
   }
-  mostRecentScore = 30;
   console.log(mostRecentScore);
   if (mostRecentScore >= 40) {
     clap.innerHTML = `<img src="../assets/images/clap.gif"/>`;
@@ -34,6 +33,6 @@ if (window.location.pathname === "/end.html") {
     highScores.splice(5);
 
     localStorage.setItem("highScores", JSON.stringify(highScores));
-    window.location.assign("/");
+    window.location.assign("/quick-quiz");
   };
 }
