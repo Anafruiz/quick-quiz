@@ -4,25 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="./assets/css/imports.css" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz Quick-Play</title>
 </head>
 
-<body>
-
+<body class="game">
     <div class="container">
-        <div id="game" class="justify-center flex-column">
+
+        <div id="loader"></div>
+        <div id="game" class="justify-center flex-column hidden">
             <div id="hud">
                 <div id="hud-item">
                     <p id="progressText" class="hud-prefix">
                         Question
                     </p>
+
                     <div id="progressBar">
                         <div id="progressBarFull">
 
                         </div>
+                        <div class="wrap-counter"></div>
+                        <p id="counter" class="hud-prefix counter">
+                            15
+                        </p>
                     </div>
                 </div>
                 <div id="hud-item">
@@ -53,14 +61,19 @@
             </div>
         </div>
     </div>
-    <!-- <footer class="footer">
-   <small>
-     <a href="http://github.com/anafruiz">
-       &copy; Anafruiz
-     </a>
-   </small>
- </footer> -->
-    <script src="./assets/js/main.js"></script>
+    <footer class="footer">
+      <small>
+        <a href="http://github.com/anafruiz">
+          &copy; Anafruiz
+        </a>
+      </small>
+      <small class="date">
+        2021
+      </small>
+      <script src="./assets/js/main.js"></script>
+
+    </footer>
+    <!-- <script src="./assets/js/main.js"></script> -->
 
 </body>
 
