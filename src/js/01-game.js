@@ -1,5 +1,9 @@
 `use strict`;
 if (window.location.pathname === "/quick-quiz/game.html") {
+  //CONSTANTS
+  const CORRECT_BONUS = 10;
+  const MAX_QUESTIONS = 5;
+  let contador = 15;
   const question = document.getElementById("question");
   const choices = Array.from(document.getElementsByClassName("choice-text"));
   const progressText = document.getElementById("progressText");
@@ -13,7 +17,7 @@ if (window.location.pathname === "/quick-quiz/game.html") {
   let score = 0;
   let questionCounter = 0;
   let availableQuesions = [];
-
+  let correct_choice = choices[currentQuestion.answer - 1];
   let questions = [];
   debugger;
   fetch(
@@ -34,7 +38,6 @@ if (window.location.pathname === "/quick-quiz/game.html") {
           0,
           loadedQuestion.correct_answer
         );
-
         answerChoices.forEach((choice, index) => {
           formattedQuestion["choice" + (index + 1)] = choice;
         });
@@ -49,12 +52,6 @@ if (window.location.pathname === "/quick-quiz/game.html") {
     .catch((err) => {
       console.error(err);
     });
-
-  //CONSTANTS
-  const CORRECT_BONUS = 10;
-  const MAX_QUESTIONS = 5;
-  let contador = 15;
-
   startGame = () => {
     questionCounter = 0;
     score = 0;
@@ -63,7 +60,6 @@ if (window.location.pathname === "/quick-quiz/game.html") {
     game.classList.remove("hidden");
     loader.classList.add("hidden");
   };
-
   function set() {
     contador--;
     counter.innerHTML = contador;
@@ -73,7 +69,6 @@ if (window.location.pathname === "/quick-quiz/game.html") {
   }
   getNewQuestion = () => {
     contador = 15;
-
     if (availableQuesions.length === 0 || questionCounter >= MAX_QUESTIONS) {
       localStorage.setItem("mostRecentScore", score);
       //go to the end page
@@ -84,49 +79,38 @@ if (window.location.pathname === "/quick-quiz/game.html") {
     progressText.innerHTML = `Question ${questionCounter}/${MAX_QUESTIONS}`;
     //Update the progress bar
     progressBarFull.style.width = `${(questionCounter / MAX_QUESTIONS) * 100}%`;
-
     const questionIndex = Math.floor(Math.random() * availableQuesions.length);
-
     currentQuestion = availableQuesions[questionIndex];
-
     question.innerHTML = currentQuestion.question;
-
     choices.forEach((choice) => {
       const number = choice.dataset["number"];
       choice.innerHTML = currentQuestion["choice" + number];
     });
-
     availableQuesions.splice(questionIndex, 1);
     acceptingAnswers = true;
   };
-
   choices.forEach((choice) => {
     choice.addEventListener("click", (e) => {
       if (!acceptingAnswers) return;
-
       acceptingAnswers = false;
       const selectedChoice = e.target;
       const selectedAnswer = selectedChoice.dataset["number"];
-
       const classToApply =
         selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
-
       if (classToApply === "correct") {
         incrementScore(CORRECT_BONUS);
       }
-      if (classToApply === "incorrect") {
-        choices[currentQuestion.answer - 1].classList.add("correct");
-      }
       selectedChoice.parentElement.classList.add(classToApply);
-
+      if (classToApply == "incorrect") {
+        correct_choice.classList.add("correct");
+      }
       setTimeout(() => {
         selectedChoice.parentElement.classList.remove(classToApply);
-        choices[currentQuestion.answer - 1].classList.remove("correct");
+        correct_choice.classList.remove("correct");
         getNewQuestion();
       }, 1000);
     });
   });
-
   incrementScore = (num) => {
     score += num;
     scoreText.innerHTML = score;
