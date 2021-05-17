@@ -1,6 +1,7 @@
 `use strict`;
 if (window.location.pathname === "/game.html") {
   //CONSTANTS
+  //CONSTANTS
   const CORRECT_BONUS = 10;
   const MAX_QUESTIONS = 5;
   let contador = 15;
@@ -17,11 +18,9 @@ if (window.location.pathname === "/game.html") {
   let score = 0;
   let questionCounter = 0;
   let availableQuesions = [];
-  let correct_choice = choices[currentQuestion.answer - 1];
   let questions = [];
-
   fetch(
-    "https://opentdb.com/api.php?amount=50&category=9&difficulty=easy&type=multiple"
+    "//opentdb.com/api.php?amount=50&category=9&difficulty=easy&type=multiple"
   )
     .then((res) => {
       return res.json();
@@ -41,13 +40,12 @@ if (window.location.pathname === "/game.html") {
         answerChoices.forEach((choice, index) => {
           formattedQuestion["choice" + (index + 1)] = choice;
         });
-
         return formattedQuestion;
       });
       setInterval(set, 1000);
-
       startGame();
     })
+
     .catch((err) => {
       console.error(err);
     });
@@ -98,13 +96,15 @@ if (window.location.pathname === "/game.html") {
       if (classToApply === "correct") {
         incrementScore(CORRECT_BONUS);
       }
-      selectedChoice.parentElement.classList.add(classToApply);
-      if (classToApply == "incorrect") {
-        correct_choice.classList.add("correct");
+
+      if (classToApply === "incorrect") {
+        choices[currentQuestion.answer - 1].classList.add("correct");
       }
+      selectedChoice.parentElement.classList.add(classToApply);
+
       setTimeout(() => {
         selectedChoice.parentElement.classList.remove(classToApply);
-        correct_choice.classList.remove("correct");
+        choices[currentQuestion.answer - 1].classList.remove("correct");
         getNewQuestion();
       }, 1000);
     });
