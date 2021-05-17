@@ -1,10 +1,10 @@
 "use strict";
 if (window.location.pathname === "/end.html") {
-    var username_1 = document.getElementById("username")["value"];
+    var username_1= document.getElementById("username")["value"];
     var saveScoreBtn_1 = document.getElementById("saveScoreBtn")["disabled"];
     var finalScore = document.getElementById("finalScore");
     var mostRecentScore_1 = localStorage.getItem("mostRecentScore");
-    var highScores_1 = JSON.parse(localStorage.getItem("highScores")) || [];
+    var highScores_1: Array<any> = JSON.parse(localStorage.getItem("highScores")) || [];
     var clap = document.getElementById("clap");
     var MAX_HIGH_SCORES = 5;
     if (finalScore) {
