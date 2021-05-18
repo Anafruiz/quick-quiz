@@ -49,6 +49,7 @@ if (window.location.pathname === "/game.html") {
     .catch((err) => {
       console.error(err);
     });
+
   startGame = () => {
     questionCounter = 0;
     score = 0;
@@ -91,6 +92,7 @@ if (window.location.pathname === "/game.html") {
       acceptingAnswers = false;
       const selectedChoice = e.target;
       const selectedAnswer = selectedChoice.dataset["number"];
+      const correct_choice = choices[currentQuestion.answer - 1];
       const classToApply =
         selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
       if (classToApply === "correct") {
@@ -98,13 +100,13 @@ if (window.location.pathname === "/game.html") {
       }
 
       if (classToApply === "incorrect") {
-        choices[currentQuestion.answer - 1].classList.add("correct");
+        correct_choice.classList.add("correct");
       }
       selectedChoice.parentElement.classList.add(classToApply);
 
       setTimeout(() => {
         selectedChoice.parentElement.classList.remove(classToApply);
-        choices[currentQuestion.answer - 1].classList.remove("correct");
+        correct_choice.classList.remove("correct");
         getNewQuestion();
       }, 1000);
     });
