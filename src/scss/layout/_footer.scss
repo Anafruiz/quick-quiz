@@ -1,5 +1,5 @@
 .footer {
-  font-size: 2rem;
+  font-size: 1.6rem;
   height: 15vh;
   background-color: $color-blue;
   position: fixed;
@@ -8,6 +8,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  @media (min-width: 768px) {
+    font-size: 2rem;
+  }
 }
 small a {
   text-decoration: none;

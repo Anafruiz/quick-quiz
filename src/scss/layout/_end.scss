@@ -9,11 +9,20 @@ input {
   margin-bottom: 1rem;
   width: 20rem;
   padding: 1.5rem;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   border: none;
   box-shadow: 0 0.1rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+  @media all and(min-width: 768px) {
+    font-size: 1.8rem;
+  }
 }
 
 input::placeholder {
   color: #aaa;
+}
+#finalScore {
+  font-size: 6rem;
+  @media all and(min-width: 768px) {
+    font-size: 8rem;
+  }
 }
