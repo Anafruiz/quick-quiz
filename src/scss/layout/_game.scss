@@ -6,10 +6,14 @@
 .choice-container {
   display: flex;
   margin-bottom: 0.5rem;
-  width: 100%;
-  font-size: 1.8rem;
+  font-size: 1.2rem;
+  width: 90%;
   border: 0.1rem solid rgba(86, 165, 235, 0.25);
   background-color: white;
+  @media (min-width: 768px) {
+    width: 100%;
+    font-size: 1.8rem;
+  }
 }
 
 .choice-container:hover {
@@ -53,6 +57,7 @@
 
 .hud-main-text {
   text-align: center;
+  margin-left: 1.5rem;
 }
 
 #progressBar {
@@ -93,4 +98,14 @@
   background-color: $color-red;
   opacity: 0.8;
   border: 3px solid $color-red;
+}
+#question {
+  margin: 1rem;
+}
+#hud-item {
+  margin: 0rem 0.5rem;
+
+  @media (min-width: 768px) {
+    margin: 0rem 1.5rem;
+  }
 }

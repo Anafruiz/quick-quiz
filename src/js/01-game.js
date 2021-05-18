@@ -1,6 +1,7 @@
 `use strict`;
 if (window.location.pathname === "/quick-quiz/game.html") {
   //CONSTANTS
+  //CONSTANTS
   const CORRECT_BONUS = 10;
   const MAX_QUESTIONS = 5;
   let contador = 15;
