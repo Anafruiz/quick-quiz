@@ -1,6 +1,6 @@
 "use strict";
 if (window.location.pathname === "/end.html") {
-    var username_1= document.getElementById("username")["value"];
+    const username_1 =document.getElementById("username")["value"]
     var saveScoreBtn_1 = document.getElementById("saveScoreBtn")["disabled"];
     var finalScore = document.getElementById("finalScore");
     var mostRecentScore_1 = localStorage.getItem("mostRecentScore");
@@ -18,6 +18,7 @@ if (window.location.pathname === "/end.html") {
         // saveScoreBtn.disabled = !username.value;
     });
     var saveHighScore = function (e) {
+        
         e.preventDefault();
         var score = {
             score: mostRecentScore_1,
