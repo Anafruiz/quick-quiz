@@ -101,6 +101,10 @@
 }
 #question {
   margin: 1rem;
+  font-size: 1.6rem;
+  @media (min-width: 768px) {
+    font-size: 3.2rem;
+  }
 }
 #hud-item {
   margin: 0rem 0.5rem;
